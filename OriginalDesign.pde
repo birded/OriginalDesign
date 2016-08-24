@@ -1,7 +1,7 @@
 float rotation = 0.05;
 boolean down = false;
 int blue = 0;
-float red = 0;
+int red = 0;
 
 void setup()
 {
@@ -57,7 +57,7 @@ void cubeFrame()
 }
 
 void mousePressed(){
-	red = random(0,255);
+	red = (int)random(0,255);
 	//change red value of inner cube upon mouse press
 }
 
