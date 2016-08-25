@@ -2,6 +2,7 @@ float rotation = 0.05;
 boolean down = false;
 int blue = 0;
 int red = 0;
+float draggedRotationX = 0;
 
 void setup()
 {
@@ -61,3 +62,6 @@ void mousePressed(){
 	//change red value of inner cube upon mouse press
 }
 
+void mouseDragged(){
+	draggedRotationX = (pmouseY - mouseY) *0.05 ;
+}
