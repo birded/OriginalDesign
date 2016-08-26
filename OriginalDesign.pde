@@ -3,6 +3,7 @@ boolean down = false;
 int blue = 0;
 int red = 0;
 float draggedRotationX = 0;
+float draggedRotationY = 0;
 
 void setup()
 {
@@ -42,6 +43,7 @@ void cube()
   rotateZ(0.5);
   fill(red,180,blue);
   stroke(0);
+  strokeWeight(1);
   box(100);
   popMatrix();
 }
@@ -49,11 +51,16 @@ void cube()
 void cubeFrame()
 {
   //rotate based on mouse position
-  rotateY(0.01*(mouseX));
-  rotateX(0.01*(mouseY));
+  //rotateY(0.01*(mouseX));
+  //rotateX(0.01*(mouseY));
+
+  //rotate based on mouse dragging
+  rotateY(draggedRotationY);
+  rotateX(draggedRotationX);
   rotateZ(0.5);
   noFill();
   stroke(255);
+  strokeWeight(3);
   box(140);
 }
 
@@ -63,5 +70,7 @@ void mousePressed(){
 }
 
 void mouseDragged(){
-	draggedRotationX = (pmouseY - mouseY) *0.05 ;
+	//dragging the mouse changes the rotation of the white cube frame
+	draggedRotationX -= (mouseY - pmouseY) * 0.02 ;
+	draggedRotationY += (mouseX - pmouseX) * 0.02 ;
 }
